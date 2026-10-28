@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>منصة إدارة المنتجات والتحول المهني - إسماعيل العسيوطي</title>
+  <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="app-sidebar">
+    <div class="sidebar-header">
+      <div class="brand-badge">مسار معتمد</div>
+      <div class="brand-title">منصة التحول إلى PM</div>
+      <div class="brand-user">إسماعيل العسيوطي | Technical PM</div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">المتابعة والتخطيط</div>
+      <button class="nav-link active" data-view="overview">
+        <span>لوحة التحكم الرئيسية</span>
+        <span class="nav-link-badge" id="navProgressBadge">0%</span>
+      </button>
+      <button class="nav-link" data-view="schedule">
+        <span>الجدول الأسبوعي (24 أسبوعاً)</span>
+      </button>
+      <button class="nav-link" data-view="roadmap">
+        <span>خارطة طريق الـ 6 أشهر</span>
+      </button>
+
+      <div class="nav-section-label">الكفاءات والمصادر</div>
+      <button class="nav-link" data-view="skills">
+        <span>خريطة المهارات والفجوات</span>
+      </button>
+      <button class="nav-link" data-view="resources">
+        <span>دليل المصادر المحققة</span>
+      </button>
+      <button class="nav-link" data-view="tools">
+        <span>أدوات مدير المنتجات</span>
+      </button>
+
+      <div class="nav-section-label">البورتفوليو والأدوات</div>
+      <button class="nav-link" data-view="projects">
+        <span>مشاريع البورتفوليو (5 مشاريع)</span>
+      </button>
+      <button class="nav-link" data-view="rice">
+        <span>حاسبة RICE التفاعلية</span>
+      </button>
+      <button class="nav-link" data-view="templates">
+        <span>مكتبة القوالب المعيارية</span>
+      </button>
+
+      <div class="nav-section-label">الجاهزية المهنية</div>
+      <button class="nav-link" data-view="interviews">
+        <span>محاكي المقابلات (CIRCLES & STAR)</span>
+      </button>
+      <button class="nav-link" data-view="career">
+        <span>المسار المهني والسيرة الذاتية</span>
+      </button>
+      <button class="nav-link" data-view="mistakes">
+        <span>أخطاء التحول الشائعة</span>
+      </button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <span>تحديث أكتوبر 2026</span>
+      <span>v2.0 Web Hub</span>
+    </div>
+  </aside>
+
+  <!-- Main View Area -->
+  <main class="app-main">
+    <header class="app-topbar">
+      <div class="topbar-title-box">
+        <h2 id="topbarTitle">لوحة التحكم الرئيسية</h2>
+        <div class="topbar-subtitle">مسار التحول من رئيس فريق SEO إلى مدير منتجات (SaaS & AI)</div>
+      </div>
+      <div class="topbar-actions">
+        <button class="btn-theme-toggle" id="themeToggleBtn" onclick="toggleTheme()">الوضع الداكن</button>
+        <a href="https://github.com/Isamilelasiouty" target="_blank" rel="noopener noreferrer" class="btn-primary">مستودع GitHub</a>
+      </div>
+    </header>
+
+    <div class="content-viewport">
+
+      <!-- View: Overview -->
+      <section class="view-panel active" id="view-overview">
+        <div class="stats-row">
+          <div class="stat-box">
+            <div class="stat-box-label">نسبة الإنجاز الإجمالية</div>
+            <div class="stat-box-val" id="statPercentage">0%</div>
+            <div class="stat-box-desc">محسوبة من المهام الأسبوعية المكتملة</div>
+          </div>
+          <div class="stat-box success">
+            <div class="stat-box-label">الأسابيع المكتملة</div>
+            <div class="stat-box-val" id="statCompletedWeeks">0 من 24</div>
+            <div class="stat-box-desc">بمعدل ساعتين يومياً (14 ساعة/أسبوع)</div>
+          </div>
+          <div class="stat-box accent">
+            <div class="stat-box-label">ساعات الاستثمار التراكمية</div>
+            <div class="stat-box-val" id="statHoursInvested">0 / 336 ساعة</div>
+            <div class="stat-box-desc">تطبيق عملي ودراسة موجهة</div>
+          </div>
+          <div class="stat-box warning">
+            <div class="stat-box-label">مشاريع البورتفوليو</div>
+            <div class="stat-box-val">5 مشاريع كبرى</div>
+            <div class="stat-box-desc">SEO GPS, Ajeek, Semrush, PRD, Pricing</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">شريط التقدم التراكمي في مسار التحول</span>
+            <span class="badge badge-tag">المرحلة الحالية: الشهر الأول</span>
+          </div>
+          <div class="card-body">
+            <div style="background: var(--bg-primary); height: 12px; border-radius: 6px; overflow: hidden; margin-bottom: 12px;">
+              <div id="dashboardProgressBar" style="background: var(--success); height: 100%; width: 0%; transition: width 0.3s ease;"></div>
+            </div>
+            <p style="font-size: 13px; color: var(--text-muted);">
+              الهدف الحالي: بناء الأساس النظري لاستراتيجية المنتج، وفهم اقتصاديات برمجيات SaaS، وصياغة وثيقة استراتيجية متكاملة لـ SEO GPS.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">خطة انطلاق اليوم الأول (أول ساعتين)</span>
+            <span class="badge badge-gap">أولوية فورية</span>
+          </div>
+          <div class="card-body">
+            <ul style="padding-right: 20px; font-size: 13.5px; line-height: 1.8;">
+              <li><strong>الساعة الأولى:</strong> قراءة الفصول 1 إلى 4 من كتاب <em>Escaping the Build Trap</em> لميليسا بيري لمعرفة الفرق بين تسليم الميزات وبناء القيمة المستدامة.</li>
+              <li><strong>الساعة الثانية:</strong> تفقد خريطة المهارات وفجواتها المحددة في تبويب "خريطة المهارات"، وتدوين ملاحظة سريعة حول كيفية مواءمة دورك الحالي في Digital Bond.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- View: Skills Map -->
+      <section class="view-panel" id="view-skills">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">مصفوفة تقييم الكفاءات وتحليل الفجوات (Gap Analysis)</span>
+            <div style="display: flex; gap: 8px;">
+              <button class="filter-chip skill-filter-btn active" data-filter="all">الكل</button>
+              <button class="filter-chip skill-filter-btn" data-filter="gap">فجوات تحتاج تطوير</button>
+              <button class="filter-chip skill-filter-btn" data-filter="strong">مهارات قوية</button>
+              <button class="filter-chip skill-filter-btn" data-filter="medium">مهارات متوسطة</button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="skills-grid" id="skillsContainer"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- View: Roadmap -->
+      <section class="view-panel" id="view-roadmap">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">خارطة طريق التحول المهني (6 أشهر / 6 مراحل متتالية)</span>
+            <span class="badge badge-tag">24 أسبوعاً</span>
+          </div>
+          <div class="card-body">
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <div class="skill-card">
+                <div class="skill-header">
+                  <div class="skill-title">المرحلة الأولى (الشهر 1): استراتيجية المنتج، الرؤية، وأسس الأعمال</div>
+                  <span class="badge badge-tag">الأسابيع 1 - 4</span>
+                </div>
+                <div class="skill-evidence"><strong>المواضيع:</strong> Problem vs Solution Space، نموذج DHM، اقتصاديات SaaS (CAC/LTV)، وأهداف OKRs.</div>
+                <div class="skill-plan"><strong>مشروع المرحلة:</strong> وثيقة استراتيجية المنتج ورؤيته (Product Vision Brief) لـ SEO GPS.</div>
+              </div>
+
+              <div class="skill-card">
+                <div class="skill-header">
+                  <div class="skill-title">المرحلة الثانية (الشهر 2): الاكتشاف المستمر وأبحاث المستخدمين المتقدمة</div>
+                  <span class="badge badge-tag">الأسابيع 5 - 8</span>
+                </div>
+                <div class="skill-evidence"><strong>المواضيع:</strong> Continuous Discovery، شجرة الفرص والحلول (OST)، أسلوب The Mom Test، وتصميم النماذج على Figma.</div>
+                <div class="skill-plan"><strong>مشروع المرحلة:</strong> شجرة OST كاملة على Miro + نموذج أولي (Prototype) على Figma لميزة التنبيهات الفورية.</div>
+              </div>
+
+              <div class="skill-card">
+                <div class="skill-header">
+                  <div class="skill-title">المرحلة الثالثة (الشهر 3): التنفيذ المرن، وثائق PRD، وتحديد الأولويات</div>
+                  <span class="badge badge-tag">الأسابيع 9 - 12</span>
+                </div>
+                <div class="skill-evidence"><strong>المواضيع:</strong> منهجية Scrum الرسمية، كتابة وثائق PRD، قصص المستخدمين بمعايير Given-When-Then، ومصفوفة RICE.</div>
+                <div class="skill-plan"><strong>مشروع المرحلة:</strong> وثيقة PRD معيارية كاملة + Backlog منظم على Jira لميزة متقدمة في SEO GPS.</div>
+              </div>
+
+              <div class="skill-card">
+                <div class="skill-header">
+                  <div class="skill-title">المرحلة الرابعة (الشهر 4): مقاييس المنتجات، التحليلات، والتجريب الإحصائي</div>
+                  <span class="badge badge-tag">الأسابيع 13 - 16</span>
+                </div>
+                <div class="skill-evidence"><strong>المواضيع:</strong> مؤشر النجم الشمالي (Amplitude North Star)، نماذج AARRR و HEART، وتحليلات Mixpanel، واختبارات A/B.</div>
+                <div class="skill-plan"><strong>مشروع المرحلة:</strong> شجرة مقاييس شاملة + خطة تتبع أحداث لـ SEO GPS + وثيقة تصميم اختبار A/B Test لمنصة Ajeek.</div>
+              </div>
+
+              <div class="skill-card">
+                <div class="skill-header">
+                  <div class="skill-title">المرحلة الخامسة (الشهر 5): النمو (PLG)، استراتيجيات التسعير، وإدارة منتجات الذكاء الاصطناعي</div>
+                  <span class="badge badge-tag">الأسابيع 17 - 20</span>
+                </div>
+                <div class="skill-evidence"><strong>المواضيع:</strong> Product-Led Growth، هندسة باقات التسعير الثلاثية، كورس Duke AI PM، وتكاليف استهلاك الـ APIs.</div>
+                <div class="skill-plan"><strong>مشروع المرحلة:</strong> استراتيجية تسعير كاملة + خطة Go-to-Market + وثيقة مواصفات ميزة AI لـ SEO GPS.</div>
+              </div>
+
+              <div class="skill-card">
+                <div class="skill-header">
+                  <div class="skill-title">المرحلة السادسة (الشهر 6): البورتفوليو، الاستعداد للمقابلات، والانتقال المهني</div>
+                  <span class="badge badge-tag">الأسابيع 21 - 24</span>
+                </div>
+                <div class="skill-evidence"><strong>المواضيع:</strong> نشر البورتفوليو على Notion، إتقان إطار CIRCLES لأسئلة حس المنتج، ونموذج STAR للأسئلة السلوكية.</div>
+                <div class="skill-plan"><strong>مشروع التخرج:</strong> بورتفوليو حي منشور يضم المشاريع الخمسة + سيرة ذاتية محدثة + محاكاة مقابلتين كاملتين.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- View: Resources -->
+      <section class="view-panel" id="view-resources">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">قاعدة المصادر المحققة والروابط الحية</span>
+            <span class="badge badge-strong">تم التحقق: 28 أكتوبر 2026</span>
+          </div>
+          <div class="card-body">
+            <div class="filter-bar">
+              <input type="text" class="search-input" id="resourceSearchInput" placeholder="ابحث باسم الكتاب، الكورس، الكاتب أو الموضوع...">
+              <button class="filter-chip active" data-category="all">الكل</button>
+              <button class="filter-chip" data-category="Book">كتب</button>
+              <button class="filter-chip" data-category="Course">كورسات</button>
+              <button class="filter-chip" data-category="Article">مقالات وأدلة</button>
+              <button class="filter-chip" data-category="Podcast">بودكاست وفيديو</button>
+              <button class="filter-chip" data-category="Template">قوالب جاهزة</button>
+            </div>
+
+            <div style="overflow-x: auto;">
+              <table class="resources-table">
+                <thead>
+                  <tr>
+                    <th>اسم المصدر والمؤلف</th>
+                    <th>النوع</th>
+                    <th>المستوى</th>
+                    <th>المدة</th>
+                    <th>التكلفة</th>
+                    <th>حالة الرابط</th>
+                    <th>الأولوية</th>
+                    <th>الإجراء</th>
+                  </tr>
+                </thead>
+                <tbody id="resourcesTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- View: Weekly Schedule -->
+      <section class="view-panel" id="view-schedule">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">الجدول الزمني التفصيلي (24 أسبوعاً - ساعتان يومياً)</span>
+            <span class="badge badge-tag">تحديث الحفظ التلقائي مفعّل</span>
+          </div>
+          <div class="card-body">
+            <div id="weeksContainer"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- View: Tools -->
+      <section class="view-panel" id="view-tools">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">أدوات مدير المنتجات المتخصصة (Jira, Figma, Mixpanel...)</span>
+            <span class="badge badge-tag">التركيز على الفجوات فقط</span>
+          </div>
+          <div class="card-body">
+            <div class="skills-grid">
+              <div class="skill-card">
+                <div class="skill-header">
+                  <div class="skill-title">Jira Software</div>
+                  <span class="badge badge-gap">أولوية قصوى</span>
+                </div>
+                <div class="skill-evidence">لغة التعاون الرسمية مع المطورين، إدارة الـ Epics والـ Stories وتخطيط الـ Sprints والـ Velocity.</div>
+                <a href="https://www.atlassian.com/software/jira/guides" target="_blank" rel="noopener noreferrer" class="resource-link-btn" style="margin-top: 10px;">دليل التعلم الرسمي</a>
+              </div>
+
+              <div class="skill-card">
+                <div class="skill-header">
+                  <div class="skill-title">Notion</div>
+                  <span class="badge badge-gap">أولوية قصوى</span>
+                </div>
+                <div class="skill-evidence">مركز توثيق الـ PRDs، وإدارة قواعد البيانات للمنتج، وبناء بورتفوليو إدارة المنتجات العام.</div>
+                <a href="https://www.notion.so/help/guides/product-management" target="_blank" rel="noopener noreferrer" class="resource-link-btn" style="margin-top: 10px;">دليل التعلم الرسمي</a>
+              </div>
+
+              <div class="skill-card">
+                <div class="skill-header">
+                  <div class="skill-title">Figma</div>
+                  <span class="badge badge-tag">أولوية عالية</span>
+                </div>
+                <div class="skill-evidence">تصميم النماذج الأولية السريعة (Lo-Fi Wireframes) والتواصل البصري مع المصممين والمطورين.</div>
+                <a href="https://help.figma.com/hc/en-us" target="_blank" rel="noopener noreferrer" class="resource-link-btn" style="margin-top: 10px;">دليل التعلم الرسمي</a>
+              </div>
+
+              <div class="skill-card">
+                <div class="skill-header">
+                  <div class="skill-title">Mixpanel & Amplitude</div>
+                  <span class="badge badge-tag">أولوية عالية</span>
+                </div>
+                <div class="skill-evidence">التحليلات السلوكية المتخصصة للمنتجات (Retention, Cohorts, Funnel Drop-offs) وتحديد النجم الشمالي.</div>
+                <a href="https://docs.mixpanel.com/" target="_blank" rel="noopener noreferrer" class="resource-link-btn" style="margin-top: 10px;">دليل التعلم الرسمي</a>
+              </div>
+
+              <div class="skill-card">
+                <div class="skill-header">
+                  <div class="skill-title">Miro</div>
+                  <span class="badge badge-tag">أولوية عالية</span>
+                </div>
+                <div class="skill-evidence">تسهيل ورش العمل الجماعية، ورسم شجرة الفرص والحلول (OST)، ومخططات رحلة المستخدم (Journey Mapping).</div>
+                <a href="https://academy.miro.com/" target="_blank" rel="noopener noreferrer" class="resource-link-btn" style="margin-top: 10px;">دليل التعلم الرسمي</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- View: Portfolio Projects -->
+      <section class="view-panel" id="view-projects">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">مشاريع معرض الأعمال الخمسة (Portfolio Blueprint)</span>
+            <span class="badge badge-tag">أدلة عملية ومواصفات</span>
+          </div>
+          <div class="card-body">
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <div class="skill-card">
+                <div class="skill-title" style="margin-bottom: 8px;">المشروع 1: دراسة حالة شاملة لمنتج SEO GPS (0 to 1 SaaS Case Study)</div>
+                <div class="skill-evidence">توثيق أبحاث المستخدمين مع 15 متخصصاً، وبناء الأتمتة السحابية، وخفض زمن الفحص اليومي بنسبة 77% (من 90 إلى 20 دقيقة).</div>
+              </div>
+              <div class="skill-card">
+                <div class="skill-title" style="margin-bottom: 8px;">المشروع 2: وثيقة PRD تفصيلية لميزة كشف تراجع المحتوى بالذكاء الاصطناعي</div>
+                <div class="skill-evidence">صياغة وثيقة متطلبات متكاملة متضمنة مقاييس الحماية، وتكلفة استهلاك التوكنز، وقصص المستخدمين بصيغة BDD.</div>
+              </div>
+              <div class="skill-card">
+                <div class="skill-title" style="margin-bottom: 8px;">المشروع 3: تفكيك ونقد منتج سيو عالمي (Product Teardown: Semrush vs Ahrefs)</div>
+                <div class="skill-evidence">تحليل استراتيجية التموضع، مسار التفعيل، وتصميم 3 مقترحات تحسين ملموسة لرفع معدل الاحتفاظ (Retention).</div>
+              </div>
+              <div class="skill-card">
+                <div class="skill-title" style="margin-bottom: 8px;">المشروع 4: خارطة طريق قائمة على المخرجات وترتيب الأولويات بـ RICE</div>
+                <div class="skill-evidence">تحديد مؤشر النجم الشمالي لـ SEO GPS وتوزيع 10 ميزات على خارطة Now-Next-Later بناءً على درجات RICE بالأرقام.</div>
+              </div>
+              <div class="skill-card">
+                <div class="skill-title" style="margin-bottom: 8px;">المشروع 5: استراتيجية التسعير وهندسة الباقات والنمو الذاتي (Pricing & PLG)</div>
+                <div class="skill-evidence">تحديد مقياس القيمة (Value Metric)، وتصميم 3 باقات اشتراك مع دراسة هامش الربح واقتصاديات الوحدة.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- View: RICE Calculator -->
+      <section class="view-panel" id="view-rice">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">حاسبة RICE التفاعلية لترتيب أولويات الميزات البرمجية</span>
+            <span class="badge badge-tag">RICE = (R x I x C) / E</span>
+          </div>
+          <div class="card-body">
+            <div class="rice-calculator-grid">
+              <div>
+                <div class="rice-input-group">
+                  <label class="rice-label">اسم الميزة المقترحة:</label>
+                  <input type="text" id="newFeatureName" class="search-input" placeholder="مثال: فحص العناوين المكررة تلقائياً..." style="width: 100%;">
+                </div>
+
+                <div class="rice-input-group">
+                  <div class="rice-label">
+                    <span>الوصول (Reach - مستخدم شهرياً):</span>
+                    <strong id="valReach">1000</strong>
+                  </div>
+                  <input type="range" id="riceReach" class="rice-slider" min="100" max="5000" step="50" value="1000">
+                </div>
+
+                <div class="rice-input-group">
+                  <div class="rice-label">
+                    <span>الأثر (Impact - 0.25 ضئيل، 1 متوسط، 2 عالي، 3 ضخم):</span>
+                    <strong id="valImpact">2</strong>
+                  </div>
+                  <input type="range" id="riceImpact" class="rice-slider" min="0.25" max="3" step="0.25" value="2">
+                </div>
+
+                <div class="rice-input-group">
+                  <div class="rice-label">
+                    <span>نسبة الثقة (Confidence - 50% حدس، 80% بيانات جزئية، 100% بحث مؤكد):</span>
+                    <strong id="valConfidence">80%</strong>
+                  </div>
+                  <input type="range" id="riceConfidence" class="rice-slider" min="0.5" max="1.0" step="0.1" value="0.8">
+                </div>
+
+                <div class="rice-input-group">
+                  <div class="rice-label">
+                    <span>الجهد الهندسي (Effort - أشهر عمل للمهندس):</span>
+                    <strong id="valEffort">1.0 شهر</strong>
+                  </div>
+                  <input type="range" id="riceEffort" class="rice-slider" min="0.2" max="3.0" step="0.1" value="1.0">
+                </div>
+
+                <button class="btn-primary" style="width: 100%; padding: 10px;" onclick="addRiceFeature()">إضافة الميزة لجدول الأولويات</button>
+              </div>
+
+              <div class="rice-result-box">
+                <div style="font-size: 14px; font-weight: 700; color: var(--text-muted);">درجة RICE المحسوبة في الوقت الفعلي:</div>
+                <div class="rice-score-display" id="riceScoreDisplay">1600</div>
+                <div style="font-size: 12px; color: var(--text-muted); max-width: 320px;">
+                  كلما ارتفعت درجة RICE زادت أولوية الميزة في الـ Backlog للبدء في تطويرها بالسبرنت القادم.
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: 30px; overflow-x: auto;">
+              <h4 style="font-size: 14px; margin-bottom: 12px;">جدول الميزات المرتبة تلقائياً بحسب درجة RICE:</h4>
+              <table class="resources-table">
+                <thead>
+                  <tr>
+                    <th>الترتيب</th>
+                    <th>اسم الميزة</th>
+                    <th>الوصول (R)</th>
+                    <th>الأثر (I)</th>
+                    <th>الثقة (C)</th>
+                    <th>الجهد (E)</th>
+                    <th>النتيجة</th>
+                    <th>الأولوية</th>
+                  </tr>
+                </thead>
+                <tbody id="riceTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- View: Templates Library -->
+      <section class="view-panel" id="view-templates">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">مكتبة القوالب المهنية المعيارية (Ready-to-Use Templates)</span>
+            <span class="badge badge-tag">نسخ بضغطة زر</span>
+          </div>
+          <div class="card-body">
+            <div style="margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center;">
+              <strong>1. قالب وثيقة متطلبات المنتج (PRD Template)</strong>
+              <button class="btn-copy" onclick="copyTemplate('tpl-prd')">نسخ القالب</button>
+            </div>
+            <div class="template-viewer" id="tpl-prd"># Product Requirements Document (PRD)
+Feature: [Feature Name]
+Author: Ismail El-Asyouty (Product Manager)
+Status: [Draft / In Review / Approved / Shipped]
+
+1. Problem & Context:
+- What is the exact customer problem?
+- Why solve it now? Link to company OKRs.
+
+2. Goals & Non-Goals:
+- In-Scope Goals: [Goal 1, Goal 2]
+- Non-Goals (Out of Scope): [Explicitly list what we won't build now]
+
+3. Success Metrics:
+- Primary Metric: [e.g., Weekly Active Audits completed]
+- Guardrail Metric: [e.g., API latency < 1.2s, Token Cost < $0.05]
+
+4. User Stories & Acceptance Criteria:
+- As a [User], I want [Action], So that [Outcome].
+- Given [Precondition], When [Action], Then [Expected Result].
+
+5. Technical Considerations & Trade-offs:
+- Implementation choices & edge cases (Rate limits, timeouts).</div>
+
+            <div style="margin-top: 24px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center;">
+              <strong>2. قالب قصة المستخدم ومعايير القبول (BDD User Story)</strong>
+              <button class="btn-copy" onclick="copyTemplate('tpl-story')">نسخ القالب</button>
+            </div>
+            <div class="template-viewer" id="tpl-story">User Story:
+As a [Technical SEO Specialist],
+I want to [receive an instant alert when a critical 404 or noindex occurs],
+So that [I can fix it with developers immediately before organic traffic drops].
+
+Acceptance Criteria (BDD):
+Scenario 1: Happy Path
+- Given the system has completed a scheduled website audit,
+- When a critical error (HTTP 404 on priority URL) is detected,
+- Then the system triggers an instant email alert with the URL and recommended fix,
+- And the notification arrives within 60 seconds.
+
+Scenario 2: Throttling / Alert Fatigue
+- Given an alert for this error was sent in the last 24 hours,
+- When the error persists in the new crawl,
+- Then do not send a separate email, but group it in the daily digest.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- View: Interview Simulator -->
+      <section class="view-panel" id="view-interviews">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">محاكي مقابلات إدارة المنتجات (أطر CIRCLES و STAR الواقعية)</span>
+            <span class="badge badge-tag">أمثلة من SEO GPS و Ajeek</span>
+          </div>
+          <div class="card-body">
+            <div id="interviewContainer"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- View: Career & CV -->
+      <section class="view-panel" id="view-career">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">استراتيجية المسار المهني وتوحيد السيرة الذاتية (CV Playbook)</span>
+            <span class="badge badge-strong">حل التضارب</span>
+          </div>
+          <div class="card-body">
+            <div class="skill-card" style="margin-bottom: 16px;">
+              <div class="skill-title">صيغة المؤهل الأكاديمي الموحدة (جامعة دمياط - BIS):</div>
+              <div class="skill-evidence" style="margin-top: 8px;">
+                <code>B.Sc. in Business Information Systems (BIS) - Website Development Track</code><br>
+                <em>Damietta University | Cairo, Egypt</em>
+              </div>
+              <div class="skill-plan" style="margin-top: 8px;">
+                اكتب سنة التخرج بوضوح (Class of 2025/2026) أو اكتب (Expected Graduation: June 2026) لتوحيد النسخ نهائياً وإزالة أي تضارب أمام الـ ATS ومسؤولي التوظيف.
+              </div>
+            </div>
+
+            <div class="skill-card" style="margin-bottom: 16px;">
+              <div class="skill-title">عنوان LinkedIn المقترح (Headline):</div>
+              <div class="skill-evidence" style="margin-top: 8px;">
+                <code>Product Manager | Ex-SEO Team Lead | Specializing in SaaS, Growth & AI Products | B.Sc. Business Information Systems</code>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <div class="skill-title">خطة الانتقال الداخلي داخل شركة Digital Bond:</div>
+              <div class="skill-evidence" style="margin-top: 8px;">
+                1. توثيق الأثر الذي حققته في منصة Ajeek وتطوير أدوات الـ SaaS لعملاء B2B كإدارة منتج فعلية.<br>
+                2. طلب تولي مسؤولية "أدوات الأتمتة وحلول الذكاء الاصطناعي" في الشركة رسمياً كـ Product Owner.<br>
+                3. تعديل المسمى الداخلي والرسمي إلى: <strong>Product Lead - Internal Tools & Platforms</strong> أو <strong>Associate Product Manager</strong>.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- View: Common Mistakes -->
+      <section class="view-panel" id="view-mistakes">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">أبرز 10 أخطاء شائعة عند التحول من SEO إلى PM</span>
+            <span class="badge badge-gap">تجنب هذه العثرات</span>
+          </div>
+          <div class="card-body">
+            <div class="skills-grid">
+              <div class="skill-card">
+                <div class="skill-title">1. التركيز على الزيارات بدلاً من الاحتفاظ</div>
+                <div class="skill-evidence">في الـ SEO نركز على جلب الزوار، لكن في إدارة المنتجات الاحتفاظ (Retention) هو المقياس الأصدق على القيمة.</div>
+              </div>
+              <div class="skill-card">
+                <div class="skill-title">2. القفز للحلول البرمجية فوراً</div>
+                <div class="skill-evidence">بدلاً من تشريح المشكلة وسؤال "لماذا"، يسارع المتخصص لبناء ميزة فورية قد لا يحتاجها أحد.</div>
+              </div>
+              <div class="skill-card">
+                <div class="skill-title">3. التعامل مع المطورين كمنفذي مهام</div>
+                <div class="skill-evidence">المطورون شركاء في التفكير والاكتشاف، واشراكهم في فهم ألم المستخدم يولد حلولاً معمارية عبقرية.</div>
+              </div>
+              <div class="skill-card">
+                <div class="skill-title">4. عدم القدرة على قول "لا" لأصحاب المصلحة</div>
+                <div class="skill-evidence">استخدم أطر RICE لتبرير قراراتك بالأرقام بدلاً من إغراق المنتج بميزات مشتتة (Scope Creep).</div>
+              </div>
+              <div class="skill-card">
+                <div class="skill-title">5. إغفال اقتصاديات الأعمال وتكلفة الـ AI</div>
+                <div class="skill-evidence">بناء ميزة ذكاء اصطناعي دون موازنة تكلفة استهلاك واجهات الـ LLM مع سعر اشتراك العميل يدمر ربحية المنتج.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <div class="toast-msg" id="toast">تم الحفظ بنجاح</div>
+
+  <script src="static/app.js"></script>
+</body>
+</html>
